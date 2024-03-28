@@ -1,0 +1,104 @@
+{% extends 'Users/base.html' %}
+{% load static %}
+
+{% block additionalLinks %}
+<link rel="stylesheet" href="{% static 'Users/css/register.css' %}">
+<link rel="stylesheet" href="{% static 'Vehicles/css/register-vehicle.css' %}">
+{% endblock %}
+
+{% block title %}Vehicle Registration{% endblock %}
+
+{% block page-title %} Vehicle Registration {% endblock%}
+{% block additional-title %} Welcome, {{ user.username }}! Please register your vehicle.{% endblock%}
+
+{% block content %}
+<div class="form-content">
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+            <div class="form-segment-title">
+                <h3>Vehicle Information</h3>
+            </div>
+
+            <div class="row">
+                
+
+                <div class="col-12 col-md-6">
+                    <div class="form-field">
+                        <div class="field-label">
+                            Plate Number
+                        </div>
+                        <div class="field-input">
+                            {{form.vehicle_plate_number}}
+                        </div>
+                        <div class="field-error" id="username-errorMsg">
+                            {{form.vehicle_plate_number.errors}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="form-field">
+                        <div class="field-label">
+                            Classification
+                        </div>
+                        <div class="field-input">
+                            {{form.vehicle_classification}}
+                        </div>
+                        <div class="field-error" id="username-errorMsg">
+                            {{form.vehicle_classification.errors}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="form-field">
+                        <div class="field-label">
+                            Model
+                        </div>
+                        <div class="field-input">
+                            {{form.vehicle_model}}
+                        </div>
+                        <div class="field-error" id="username-errorMsg">
+                            {{form.vehicle_model.errors}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-field">
+                        <div class="field-label">
+                            Vehicle Image
+                        </div>
+                        <div class="field-input">
+                            {{form.vehicle_image}}
+                        </div>
+                        <div class="field-error" id="username-errorMsg">
+                            {{form.vehicle_image.errors}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            
+            <div id="additional">
+                
+            </div>
+
+            <button class="btn btn-primary mb-2"  type="button" onclick="addAnotherVehicle()">ADD</button>
+            <div class="row">
+                <div class="col-12 text-right">
+                    <a class="btn btn-secondary"style="cursor: pointer;" href="{% url 'home' %}">Skip</a>
+                    <input type="submit" value="Register Vehicle" id="submit-button">
+                </div>
+            </div>
+        </div>
+    </form>
+    
+</div>
+{% endblock %}
+
+{% block additionalScript %}
+<script src="{% static 'Vehicles/js/register-vehicle.js' %}"></script>
+{% endblock%}

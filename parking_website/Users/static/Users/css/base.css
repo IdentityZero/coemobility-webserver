@@ -1,0 +1,116 @@
+:root {
+    /* Colors are all defined here, comment if not used*/
+    --color-primary-main: #800000;
+    --color-primary-light: #9C1515;
+    --color-primary-lighter: #994747;
+    --color-primary-lightest: #BB6363;
+    --color-primary-dark: #6E0E0E;
+    --color-secondary-main: #A88D56;
+    --color-secondary-light: #C4AB7A;
+    --color-secondary-lighter: #DDC8A0;
+    --color-secondary-dark: #987A3E;
+    --color-secondary-darker: #7B612F;
+    --color-accent-main:#E1AD01;
+    --color-accent-light:#FFB612;
+    --color-accent-lighter:#FFC84C;
+    --color-accent-lightest:#FFD87F;
+    --color-accent-dark:#CCA114;
+    --form-bg-color: rgba(128,0,0,0.8);
+
+    /* Font Related */
+    --primary-font-family: Calibri,'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    --secondary-font-family:'Times New Roman', Times, serif;
+
+    /* Large Titles */
+    --large-title-font-size-xxl:48px;
+    --large-title-font-size-xl:40px;
+    --large-title-font-size-l:32px;
+    --large-title-font-size-m:24px;
+    --large-title-font-size-s:18px;
+
+    /* For paragraph */
+    --paragraph-font-size-xxl:16px;
+    --paragraph-font-size-xl:15px;
+    --paragraph-font-size-l:14px;
+    --paragraph-font-size-m:13px;
+    --paragraph-font-size-s:12px;
+
+    --title-font-size:33.18px;
+    --signup-title-font-size:27.65px;
+
+    --text-font-size:19px;
+    --icon-font-size:30px;
+}
+
+body{
+    background-color: #E0E0E0;
+    min-height:100vh;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: var(--color-primary-main);
+    height:136px;
+}
+
+.title-content{
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#page-title{
+    font-family:var(--secondary-font-family);
+    font-size: var(--large-title-font-size-xxl);
+    color: var(--color-accent-lightest);
+    text-transform: uppercase;
+}
+
+#additional-title{
+    margin-top:-10px;
+    color:white;
+    font-size: var(--paragraph-font-size-xxl);
+}
+
+
+@media (max-width: 1200px) {
+    #page-title{
+        font-size: var(--large-title-font-size-xl);
+    }
+
+    #additional-title{
+        font-size: var(--paragraph-font-size-xl);
+    }
+}
+
+@media (max-width: 992px) {
+    #page-title{
+        font-size: var(--large-title-font-size-l);
+    }
+
+    #additional-title{
+        font-size: var(--paragraph-font-size-l);
+    }
+}
+
+@media (max-width: 768px) {
+    #page-title{
+        font-size: var(--large-title-font-size-m);
+    }
+    #additional-title{
+        font-size: var(--paragraph-font-size-m);
+    }
+}
+
+@media (max-width: 576px) {
+    #page-title{
+        font-size: var(--large-title-font-size-s);
+    }
+    #additional-title{
+        font-size: var(--paragraph-font-size-s);
+    }
+}

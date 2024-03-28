@@ -1,0 +1,8 @@
+.clickable-header th{
+    cursor: pointer;
+}
+
+.clickable-header th:hover {
+    background-color: #343A40 !important;
+    color:white;
+}

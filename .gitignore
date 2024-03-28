@@ -1,0 +1,4 @@
+*.vscode
+virt
+*.txt
+!requirements.txt

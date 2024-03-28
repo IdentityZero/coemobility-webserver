@@ -1,0 +1,244 @@
+<!-- Make sure the base is from the 'core' -->
+{% extends 'core/base.html' %} 
+{% load static %}
+
+{% block additionalLinks %}
+<link rel="stylesheet" href="{% static 'core/css/profile.css' %}">
+{% endblock %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container pt-3">
+    {% if error_list %}
+    <div class="alert alert-danger">
+        <strong>Error:</strong> Please correct the errors below.
+        <ul>
+            {% for field, errors in error_list.items %}
+                {% for error in errors %}
+                    <li>{{ field }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    <div class="row justify-content-center">
+        <div id="profile-profile-picture-container" class="col-12 d-flex">
+            <img id="profile-profile-picture" src="{{ THUMBNAIL_BUCKET_URL }}{{ user.usersprofile.user_image }}" alt="{{user.username}}'s Profile Picture">
+        </div>
+        <div id="personal-info-container" class="col-12" >
+            <div style="padding-top:120px" id="padding-div">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="personal-detail">
+
+                            <div class="row p-1 pt-2">
+
+                                <div class="col-12 p-0 mt-2 text-center">
+                                    <h5>Personal Information</h5>
+                                </div>
+                                
+                                <div class="col-12 p-0 mt-2">
+                                    <div class="row">
+                                        <div class="col-3 text-right">
+                                            <i class="fa-solid fa-user"></i>
+                                        </div>
+                                        <div class="col-9 pl-0">
+                                            {{user.username}}
+                                            {% if user.is_staff %}
+                                            <span><i style="font-size: 10px !important; vertical-align: middle;" class="fa-solid fa-circle-check"></i></span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 p-0 mt-2">
+                                    <div class="row">
+                                        <div class="col-3 text-right">
+                                            <i class="fa-solid fa-id-badge"></i>
+                                        </div>
+                                        <div class="col-9 pl-0">
+                                            {{user.usersprofile.user_university_number}}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 p-0 mt-2">
+                                    <div class="row">
+                                        <div class="col-3 text-right">
+                                            <i class="fa-solid fa-id-card"></i>
+                                        </div>
+                                        <div class="col-9 pl-0">
+                                            {{user.get_full_name}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 p-0 mt-2">
+                                    <div class="row">
+                                        <div class="col-3 text-right">
+                                            <i class="fa-solid fa-envelope"></i>
+                                        </div>
+                                        <div class="col-9 pl-0">
+                                            {{user.email}}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 p-0 mt-2">
+                                    <div class="row">
+                                        <div class="col-3 text-right">
+                                            <i class="fa-solid fa-phone"></i>
+                                        </div>
+                                        <div class="col-9 pl-0">
+                                            {{user.usersprofile.user_contact_number}}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 p-0 mt-2">
+                                    <div class="row">
+                                        <div class="col-3 text-right">
+                                            <i class="fa-solid fa-building"></i>
+                                        </div>
+                                        <div class="col-9 pl-0">
+                                            {{user.usersprofile.user_department}}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 p-0 mt-2">
+                                    <div class="row">
+                                        <div class="col-3 text-right">
+                                            <i class="fa-solid fa-users"></i>
+                                        </div>
+                                        <div class="col-9 pl-0">
+                                            {{user.usersprofile.user_identity}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-4 mb-3">
+                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#editPersonalInfoModal">Edit profile</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8 col-md-12" id="vehicle-detail-container">
+                        <div class="row p-1 pt-2 justify-content-center">
+                            <div class="col-12 p-0 mt-2">
+                                <h5 class="pl-1">My Vehicles</h5>
+                            </div>
+
+                            {% for vehicle in vehicles%}
+
+                            <div class="col-xl-6 col-10  p-0">
+                                <div class="card">
+                                    <img class="card-img-top custom-card-img" src="{{ THUMBNAIL_BUCKET_URL }}{{ vehicle.instance.vehicle_image }}" alt="{{vehicle.instance.vehicle_plate_number}}'s image">
+                                    <div class="card-body">
+                                        <h6 class="card-title">{{ vehicle.instance.vehicle_plate_number }}</h6>
+                                        <p class="card-text small">{{ vehicle.instance.vehicle_classification }} - {{ vehicle.instance.vehicle_model }}</p>
+                                        <button type="button" data-toggle="modal" data-target="#edit{{ vehicle.instance.vehicle_plate_number }}" class="btn btn-primary btn-sm">Edit</button>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            {% endfor %}
+
+                            {% if not vehicles%}
+                            <div class="col-12 mt-4 p-0">
+                                <a href="{% url 'register-vehicle' %}" class="btn btn-secondary btn-sm">Register a vehicle</a>
+                            </div>
+                            {% else %}
+                            <div class="col-12 mt-4 p-0">
+                                <button type="button" data-toggle="modal" data-target="#registerNewVehicle" class="btn btn-primary btn-sm">Add vehicle</button>
+                            </div>
+                            {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editPersonalInfoModal" tabindex="-1" role="dialog" aria-labelledby="editPersonalInfoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">Edit Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                {{ UserForm.as_p }}
+                {{ ProfileForm.as_p }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registerNewVehicle" tabindex="-1" role="dialog" aria-labelledby="registerNewVehicleLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">Register Vehicle</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ NewVehicleForm}}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+
+{% for vehicle in vehicles %}
+<div class="modal fade" id="edit{{ vehicle.instance.vehicle_plate_number }}" tabindex="-1" role="dialog" aria-labelledby="edit{{ vehicle.instance.vehicle_plate_number }}Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit {{ vehicle.instance.vehicle_plate_number }} </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ vehicle.form }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}
+
+
+{% block additionalScript %}
+<script src="{% static 'core/js/profile.js' %}"></script>
+{% endblock%}

@@ -1,0 +1,229 @@
+<!-- Make sure the base is from the 'core' -->
+{% extends 'core/base.html' %} 
+{% load static %}
+
+{% block additionalLinks %}
+<link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+{% endblock %}
+
+{% block title %}COEMobility{% endblock %}
+
+{% block content %}
+<input type="hidden" id="user-id" value="{{ user.id }}">
+<input type="hidden" id="register-home-url" value="{% url 'register-vehicle' %}">
+
+<div class="home-content">
+    <div class="container pt-2">
+        
+        <div class="row">
+
+            <div class="col-lg-6 col-md-12 mb-3">
+                <div class="accordion" id="status">
+                    <div class="card">
+                      <div class="card-header" id="headingOne">
+                          <button class="btn btn-custom-accordion" type="button" data-toggle="collapse" data-target="#collapseStatus" aria-expanded="true" aria-controls="collapseStatus">
+                            Most recent entry
+                          </button>
+                      </div>
+                  
+                      <div id="collapseStatus" class="collapse show" aria-labelledby="headingOne" data-parent="#status">
+                        <div class="card-body">
+                          <div class="status-container">
+                            <p>Entrance: </p>
+                            <h5>No data</h5>
+                          </div>
+                          <div class="status-container">
+                            <p>Exit: </p>
+                            <h5>No data</h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            {% for vehicle_category in vehicle_categories %}
+            <div class="col-6 col-md-6 mb-3">
+                <div class="accordion" id="{{ priority_role }}-{{ vehicle_category }}">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            {% if forloop.counter == 1 %}
+                                <button class="btn btn-custom-accordion" type="button" data-toggle="collapse" data-target="#{{ priority_role }}-{{ vehicle_category }}Collapse" aria-expanded="true" aria-controls="{{ priority_role }}-{{ vehicle_category }}Collapse">
+                            {% else %}
+                                <button class="btn btn-custom-accordion" type="button" data-toggle="collapse" data-target="#{{ priority_role }}-{{ vehicle_category }}Collapse" aria-expanded="false" aria-controls="{{ priority_role }}-{{ vehicle_category }}Collapse">
+                            {% endif %}
+                                    {{ priority_role }}-{{ vehicle_category }}
+                                </button>
+                        </div>
+                        
+                        {% if forloop.counter == 1 %}
+                            <div id="{{ priority_role }}-{{ vehicle_category }}Collapse" class="collapse show" aria-labelledby="headingOne" data-parent="#{{ priority_role }}-{{ vehicle_category }}">
+                        {% else %}
+                            <div id="{{ priority_role }}-{{ vehicle_category }}Collapse" class="collapse" aria-labelledby="headingOne" data-parent="#{{ priority_role }}-{{ vehicle_category }}">
+                        {% endif %}
+
+                                <div class="card-body">
+                                    <div class="card-body-show">
+                                        <div>
+                                            <p name="max" class="d-none d-md-block">Max space: Please wait</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <h6>Available</h6 class="text-available">
+                                            <h2 name="available-value">Connecting...</h2>
+                                        </div>
+                                        <div>
+                                            <p name="date" class="text-muted text-right">As of: 00:00:00</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body-hidden">
+                                        <div class="text-center">
+                                            <h6>This feature will come soon.</h6>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+            {% for role in roles%}
+                {% for vehicle_category in vehicle_categories %}
+                <div class="col-6 col-md-6 mb-3">
+                    <div class="accordion" id="{{ role }}-{{ vehicle_category }}">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <button class="btn btn-custom-accordion" type="button" data-toggle="collapse" data-target="#{{ role }}-{{ vehicle_category }}Collapse" aria-expanded="false" aria-controls="{{ role }}-{{ vehicle_category }}Collapse">
+                                    {{ role }}-{{ vehicle_category }}
+                                </button>
+                            </div>
+                    
+                            <div id="{{ role }}-{{ vehicle_category }}Collapse" class="collapse" aria-labelledby="headingOne" data-parent="#{{ role }}-{{ vehicle_category }}">
+                                <div class="card-body">
+                                    <div class="card-body-show">
+                                        <div>
+                                            <p name="max" class="d-none d-md-block">Max space: Please wait</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <h6>Available</h6 class="text-available">
+                                            <h2 name="available-value">Connecting...</h2>
+                                        </div>
+                                        <div>
+                                            <p name="date" class="small text-muted text-right">As of: 00:00:00</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="card-body-hidden">
+                                        <div class="text-center">
+                                            <h6>This feature will come soon.</h6>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endfor %}
+
+            </div>
+    </div>
+
+    <div class="container">
+        <div class="accordion" id="coveredParking">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <button class="btn btn-custom-accordion" type="button" data-toggle="collapse" data-target="#coveredParkingCollapse" aria-expanded="true" aria-controls="coveredParkingCollapse">
+                    Covered Parking Status
+                    </button>
+                </div>
+            
+                <div id="coveredParkingCollapse" class="collapse show" aria-labelledby="headingOne" data-parent="#coveredParking">
+                    <div class="card-body">
+                        
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-6 container covered-parking" id="East">
+                                    <div class="col-12 text-center">
+                                        <h5 name="title">Connecting...</h5>
+                                    </div>
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-2 parking-space" id="0">
+                                            <div class="guard-house">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2 parking-space" id="East-1">
+                                            <div class="parking-space-unavailable">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2 parking-space" id="East-2">
+                                            <div class="parking-space-unavailable">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2 parking-space" id="East-3">
+                                            <div class="parking-space-unavailable">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2 parking-space" id="East-4">
+                                            <div class="parking-space-unavailable">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 container covered-parking" id="West">
+                                    <div class="col-12 text-center">
+                                        <h5 name="title">Connecting...</h5>
+                                    </div>
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-2  parking-space" id="West-1">
+                                            <div class="parking-space-unavailable">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2 parking-space" id="West-2">
+                                            <div class="parking-space-unavailable">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2 parking-space" id="West-3">
+                                            <div class="parking-space-unavailable">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2 parking-space" id="West-4">
+                                            <div class="parking-space-unavailable">
+                                            </div>
+                                        </div>
+                                        <div class="col-2 parking-space" id="West-5">
+                                            <div class="parking-space-unavailable">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block additionalScript %}
+<script src="{% static 'core/js/home.js' %}"></script>
+{% endblock%}

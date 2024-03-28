@@ -1,0 +1,66 @@
+<!-- Make sure the base is from the 'core' -->
+{% extends 'core/base.html' %} 
+{% load static %}
+
+{% block additionalLinks %}
+<link rel="stylesheet" href="{% static 'core/css/records.css' %}">
+{% endblock %}
+
+{% block title %}Parking Records{% endblock %}
+
+{% block content %}
+<input type="hidden" id="user-id" value="{{ user.id }}">
+<div class="container">
+    <div class="row">
+        <!-- <div class="col-12">
+            <div class="accordion" id="filterAccordion">
+                <div class="card">
+                    <div class="card-header p-0" id="headingOne">
+                        <h2 class="m-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Collapsible Group Item #1
+                        </button>
+                        </h2>
+                    </div>
+                
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#filterAccordion">
+                        <div class="card-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="col-12 mb-2">
+            <button id="download-records-btn" class="btn btn-secondary">Download Records</button>
+        </div>
+
+        <div class="col-12">
+            <table id='parking-data-table' class="table table-hover table-responsive">
+                <thead>
+                    <tr class="table-active">
+                    <th scope="col" class="col-2">Plate Number</th>
+                    <th scope="col" colspan="2" class="text-center">Time in</th>
+                    <th scope="col" colspan="2" class="text-center">Time out</th>
+                    </tr>
+                    <tr class="table-secondary clickable-header">
+                        <th onclick="sortText()"><i class="fa-solid fa-sort"></i></th>
+                        <th class="text-center">Date</th>
+                        <th class="text-center">Time</th>
+                        <th class="text-center">Date</th>
+                        <th class="text-center">Time</th>
+                    </tr>
+                </thead>
+                <tbody id="parking-data-body" class="table-sm">
+                </tbody>
+                </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block additionalScript %}
+<script src="{% static 'core/js/records.js' %}"></script>
+{% endblock%}

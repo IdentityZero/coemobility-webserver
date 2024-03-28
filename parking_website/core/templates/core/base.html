@@ -1,0 +1,176 @@
+<!-- THIS IS THE BASE TEMPLATE OF THE MAIN WEBSITE -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Base styles -->
+    <link rel="stylesheet" href="{% static 'core/css/base.css' %}">
+
+    {% block additionalLinks %}
+    {% endblock %}
+
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="desktop-topbar" class="topbar container">
+                <div class="topbar-content company-name">
+                    COEMobility
+                </div>
+                <div class="topbar-content topbar-content-right">
+                    <div class="dropdown">
+                        <button class="btn btn-nobg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          {{ user.username }}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+                            <form method="POST" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <input class="dropdown-item" id="logout-button" type="submit" value="Logout">
+                            </form>
+                            </div>
+                      </div>
+                </div>
+            </div>
+
+            <div id="mobile-topbar" class="container-fluid">
+                <input id="checkBox" type="checkbox" onclick="openSideBar()">
+                
+                <label for="checkBox">
+                    <div class="topbar-content company-name">
+                        <span><i class="fa-solid fa-bars mr-2" id="nav-icon"></i></span>COEMobility
+                    </div>
+                </label>
+            </div>
+        </nav>
+    </header>
+
+    <div id="mobile-sidebar">
+        <div id="mobile-sidebar-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-right mt-2">
+                        <button onclick="closeSideBar()"type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                    </div>
+                    <div class="col-12">
+                        <figure class="fir-image-figure">
+                            <img class="fir-clickcircle" src="{{ THUMBNAIL_BUCKET_URL }}{{ user.usersprofile.user_image }}" alt="{{user.username}}'s Profile Picture">
+
+                            <figcaption>
+                              <div class="fig-author-figure-title">{{ user.get_full_name }}</div>
+                              <div class="fig-author-figure-title">{{ user.email }}</div>
+                            </figcaption>
+                          </figure>
+                    </div>
+                    <div class="col-12">
+                        <div class="link-groups">
+                            <div class="link-set">
+                                <div class="link-set-title">
+                                    <h3>My Profile</h3>
+                                </div>
+                                <div class="link-set-items">
+                                    <button id="homeLink-mobile"><a href="{% url 'home' %}">Home</a></button>
+                                    <button id="profileLink-mobile" ><a href="{% url 'profile' %}">Profile</a></button>
+                                    <button id="recordsLink-mobile"><a href="{% url 'records' %}">Parking Records</a></button>
+                                </div>
+                            </div>
+
+                            <div class="link-set">
+                                <div class="link-set-title">
+                                    <h3>Others</h3>
+                                </div>
+                                <div class="link-set-items">
+                                    <button>Report</button>
+                                    <button>About us</button>
+                                    <button>Frequently asked questions</button>
+                                </div>
+                            </div>
+
+                            <div class="link-set">
+                                <div class="link-set-title">
+                                    <form method="POST" action="{% url 'logout' %}">
+                                        {% csrf_token %}
+                                        <input class="dropdown-item" style="padding-left:0" id="logout-button"type="submit" value="Logout">
+                                    </form>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 pr-2 d-none d-md-block sidebar-container">
+                    <div class="sidebar p-3">
+
+                        <div id="profile-picture">
+                            <img src="{{ THUMBNAIL_BUCKET_URL }}{{ user.usersprofile.user_image }}" alt="{{user.username}}'s Profile Picture">
+                        </div>
+
+                        <div class="link-groups">
+                            <div class="link-set">
+                                <div class="link-set-title">
+                                    <h3>My Profile</h3>
+                                </div>
+                                <div class="link-set-items">
+                                    <button id="homeLink-desktop"><a href="{% url 'home' %}">Home</a></button>
+                                    <button id="profileLink-desktop" ><a href="{% url 'profile' %}">Profile</a></button>
+                                    <button id="recordsLink-desktop"><a href="{% url 'records' %}">Parking Records</a></button>
+                                </div>
+                            </div>
+
+                            <div class="link-set">
+                                <div class="link-set-title">
+                                    <h3>Others</h3>
+                                </div>
+                                <div class="link-set-items">
+                                    <button>Report</button>
+                                    <button>About us</button>
+                                    <button>Frequently asked questions</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-9 col-md-8 pl-2 main-content-container">
+                    <div class="main-content d-flex align-items-center pb-5">
+                        
+                        {% block content %}
+                        
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    {% block additionalScript %}
+    {% endblock%}
+    <script src="{% static 'core/js/base.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>

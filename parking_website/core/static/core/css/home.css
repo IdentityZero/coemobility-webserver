@@ -1,0 +1,165 @@
+.home-content{
+    width: 100%;
+    height: 100%;
+    margin:0;
+}
+
+p,h5{
+    padding: 0;
+    margin: 0;
+}
+
+:focus {
+    outline: 0 !important;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+  }
+
+.card{
+    border-radius: 20px;
+    background-color: var(--color-secondary-lighter);
+}
+
+.card-header{
+    background-color: transparent;
+    border: none;
+    padding:0;
+    border-radius: 20px;
+}
+
+.card-body{
+    padding:5px;
+}
+
+.card-body h6{
+    margin-bottom: 0;
+}
+
+.card-body p{
+    padding-left:15px;
+    font-weight:500
+}
+
+.btn-custom-accordion{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary-main);
+    color: var(--color-accent-lightest);
+    border-radius: 20px;
+}
+
+.accordion button[aria-expanded="true"] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.accordion button[aria-expanded="false"] {
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.status-container{
+    display: flex;
+}
+
+.status-container p{
+    min-width: 90px;
+}
+
+.card-body-hidden{
+    position: absolute;
+    top: 37.6px;
+    left: 0;
+    z-index: 2;
+    background-color: lightcoral;
+    height: calc(100% - 37.6px);
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding:5px;
+}
+
+.card-body-show{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.card-body:hover .card-body-hidden {
+    opacity: 1;
+}
+
+#coveredParking button{
+    font-size: 20px;
+}
+
+.parking-available{
+    color:green;
+    font-size: 20px;
+}
+.parking-unavailable{
+    color:red;
+    font-size: 20px;
+}
+
+.parking-space{
+    min-height: 150px;
+    padding:0;
+    background: url("../image/parking-space.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+.parking-space-available{
+    height: 100%;
+    background: url("../image/available-img.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.guard-house{
+    height: 100%;
+    width: 100%;
+    background: url("../image/guard.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+
+@media (max-width: 1200px) {
+    .card-body p{
+        font-size: 14px;
+    }
+
+    .card-body h5{
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .card-body h2{
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-custom-accordion{
+        font-size: 14px;
+    }
+
+    .card-body p{
+        font-size: 13px;
+    }
+
+    .card-body h5{
+        font-size: 17px;
+    }
+}
