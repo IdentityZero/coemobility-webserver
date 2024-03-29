@@ -1,4 +1,12 @@
+# VS Code tasks
 *.vscode
+# Change this to your virtual environments
 virt
 *.txt
 !requirements.txt
+# For caches
+__pycache__/
+# For images in the media
+media/**/*.png
+media/**/*.jpg
+media/**/*.jpeg
