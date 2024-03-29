@@ -11,3 +11,5 @@ __pycache__/
 media/**/*.png
 media/**/*.jpg
 media/**/*.jpeg
+!vehicle.png
+!profile.png
