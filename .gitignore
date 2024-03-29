@@ -6,6 +6,7 @@ virt
 !requirements.txt
 # For caches
 __pycache__/
+.pyc
 # For images in the media
 media/**/*.png
 media/**/*.jpg
