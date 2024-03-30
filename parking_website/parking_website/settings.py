@@ -163,8 +163,8 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 THUMBNAIL_BUCKET_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME_THUMBNAILS
 
-# DATA_SERVER_URL = 'http://122.248.192.233'
-DATA_SERVER_URL = 'http://localhost'
+DATA_SERVER_URL = 'http://122.248.192.233'
+# DATA_SERVER_URL = 'http://localhost'
 
 DEFAULT_PROFILE_IMAGE = "profile_pics/profile.png"
 DEFAULT_VEHICLE_IMAGE = "vehicle_pics/vehicle.png"
