@@ -86,7 +86,8 @@ function formatDate(date){
     return date.toLocaleDateString('en-US', options);
 }
 
-const dataServerDomainName = 'http://192.168.55.105:8000'
+const dataServerDomainName = 'http://122.248.192.233'
+// const dataServerDomainName = 'http://192.168.55.105:8000'
 
 function setCoveredParkingSpace(area, area_id, state){
     var parkingSpaceContainer = document.getElementById(`${area}-${area_id}`)

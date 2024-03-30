@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-az!u=wrd1&ulls7#s613_%5m(0@3(*!7gp4k%g*v%uj(8r_wja
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['122.248.192.233']
 
 
 # Application definition
@@ -81,16 +81,28 @@ WSGI_APPLICATION = "parking_website.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "myParking",
+#         "USER" : "root",
+#         "PASSWORD": "o/g6C_TNT9GacVv?1=l/r`N8-6*1S8",
+#         "HOST": "localhost",
+#         "PORT": 3306,
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "myParking",
-        "USER" : "root",
-        "PASSWORD": "o/g6C_TNT9GacVv?1=l/r`N8-6*1S8",
-        "HOST": "localhost",
+        "USER" : "admin",
+        "PASSWORD": "DAjCjeCsjckolfJcbkY2",
+        "HOST": "coemobilitydb.cpks4sm0udv9.ap-southeast-1.rds.amazonaws.com",
         "PORT": 3306,
     }
 }
+
 
 
 # Password validation
@@ -156,7 +168,8 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 THUMBNAIL_BUCKET_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME_THUMBNAILS
 
-DATA_SERVER_URL = 'http://localhost:8000'
+DATA_SERVER_URL = 'http://122.248.192.233'
+# DATA_SERVER_URL = 'http://localhost:8000'
 
 DEFAULT_PROFILE_IMAGE = "profile_pics/profile.png"
 DEFAULT_VEHICLE_IMAGE = "vehicle_pics/vehicle.png"
