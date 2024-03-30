@@ -86,8 +86,8 @@ function formatDate(date){
     return date.toLocaleDateString('en-US', options);
 }
 
-const dataServerDomainName = 'http://122.248.192.233:8000'
-const dataServerDomainName_asgi = 'http://122.248.192.233:8001'
+const dataServerDomainName = 'http://localhost:8000'
+// const dataServerDomainName_asgi = 'http://122.248.192.233:8001'
 
 function setCoveredParkingSpace(area, area_id, state){
     var parkingSpaceContainer = document.getElementById(`${area}-${area_id}`)
@@ -138,7 +138,7 @@ const coveredParkingStatusURL = `${dataServerDomainName}/api/covered_parking/`;
     })
 })();
 
-const parkingStatusSSE = new EventSource(`${dataServerDomainName_asgi}/webapi/parking/status/sse/`);
+const parkingStatusSSE = new EventSource(`${dataServerDomainName}/webapi/parking/status/sse/`);
 parkingStatusSSE.addEventListener('message', function(event) {
     const parkingData = JSON.parse(event.data);
     if (parkingData['topic'] == "parking"){
