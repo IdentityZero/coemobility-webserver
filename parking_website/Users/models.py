@@ -30,7 +30,7 @@ class UsersDepartment(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'users_department'
+        db_table = 'Users_department'
     
     def __str__(self):
         return self.dept_name
@@ -42,7 +42,7 @@ class UsersIdentity(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'users_identity'
+        db_table = 'Users_identity'
     
     def __str__(self):
         return self.identity_name
@@ -59,5 +59,5 @@ class UsersProfile(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'users_profile'
+        db_table = 'Users_profile'
 

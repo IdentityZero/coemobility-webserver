@@ -8,7 +8,7 @@ class VehiclesVehiclecategory(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'vehicles_vehiclecategory'
+        db_table = 'Vehicles_vehiclecategory'
     
     def __str__(self):
         return self.vehicle_category
@@ -20,7 +20,7 @@ class VehiclesVehicleclassification(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'vehicles_vehicleclassification'
+        db_table = 'Vehicles_vehicleclassification'
     
     def __str__(self):
         return self.vehicle_classification
@@ -35,7 +35,7 @@ class VehiclesVehicles(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'vehicles_vehicles'
+        db_table = 'Vehicles_vehicles'
 
 class VehiclesVehiclerfid(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -44,5 +44,5 @@ class VehiclesVehiclerfid(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'vehicles_vehiclerfid'
+        db_table = 'Vehicles_vehiclerfid'
 

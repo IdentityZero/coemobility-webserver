@@ -30,12 +30,11 @@ urlpatterns = [
     # path("admin/", admin.site.urls),
     path("", include("core.urls")),
 
-    path("login/",auth_views.LoginView.as_view(template_name="users/login.html",redirect_authenticated_user=True), name="login"),
+    path("login/",auth_views.LoginView.as_view(template_name="Users/login.html",redirect_authenticated_user=True), name="login"),
     path("logout/",auth_views.LogoutView.as_view(), name="logout"),
 
     path("register/",UserAccountRegistrationView.as_view(), name="register"),
     path("register/vehicle/",VehicleRegistrationFormView.as_view(), name="register-vehicle"),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
