@@ -135,7 +135,8 @@ USE_I18N = True
 USE_TZ = True
 
 CORS_ALLOWED_ORIGINS = [
-    '*',
+    'http://122.248.192.233',
+    'https://122.248.192.233',
 ]
 
 
