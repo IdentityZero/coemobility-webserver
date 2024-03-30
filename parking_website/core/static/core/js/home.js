@@ -87,7 +87,7 @@ function formatDate(date){
 }
 
 // const dataServerDomainName = 'http://localhost:8000'
-const dataServerDomainName_asgi = 'http://122.248.192.233'
+const dataServerDomainName = 'http://122.248.192.233'
 
 function setCoveredParkingSpace(area, area_id, state){
     var parkingSpaceContainer = document.getElementById(`${area}-${area_id}`)
