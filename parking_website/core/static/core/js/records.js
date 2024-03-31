@@ -29,7 +29,7 @@ async function fetchData(url, maxRetries = 3, retryDelay = 1000) {
 }
 
 // const dataServerDomainName = 'http://localhost'
-const dataServerDomainName = 'https//122.248.192.233'
+const dataServerDomainName = 'https//coemobility.com'
 const userID = document.getElementById("user-id").value
 const parkingRecordsURL = `${dataServerDomainName}/webapi/parking/records/${userID}/all/`;
 
