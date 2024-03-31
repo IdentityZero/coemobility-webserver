@@ -3,6 +3,7 @@
 # Change this to your virtual environments
 virt
 *.txt
+*.log
 !requirements.txt
 # For caches
 __pycache__/
