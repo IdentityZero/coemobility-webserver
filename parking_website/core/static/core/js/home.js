@@ -88,6 +88,7 @@ function formatDate(date){
 
 // const dataServerDomainName = 'http://localhost'
 const dataServerDomainName = 'https//coemobility.com'
+console.log(dataServerDomainName)
 
 function setCoveredParkingSpace(area, area_id, state){
     var parkingSpaceContainer = document.getElementById(`${area}-${area_id}`)
