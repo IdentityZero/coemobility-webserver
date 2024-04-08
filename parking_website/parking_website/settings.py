@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-az!u=wrd1&ulls7#s613_%5m(0@3(*!7gp4k%g*v%uj(8r_wja
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'coemobility.com']
+ALLOWED_HOSTS = ['47.129.54.22','localhost', 'coemobility.com']
 
 
 # Application definition
@@ -125,6 +125,8 @@ USE_I18N = True
 USE_TZ = True
 
 CORS_ALLOWED_ORIGINS = [
+    'http://47.129.54.22',
+    'https://47.129.54.22',
     'https://localhost',
     'https://coemobility.com',
 
