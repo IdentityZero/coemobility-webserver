@@ -35,7 +35,6 @@ class UserAccountRegistrationView(FormView):
         contact_number = form.cleaned_data['contact_number']
         university_number = form.cleaned_data['university_number']
         profile_picture = form.cleaned_data['profile_picture']
-        print(profile_picture)
 
         if profile_picture is None:
             profile = models.UsersProfile(user=user,
