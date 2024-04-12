@@ -87,7 +87,7 @@ function formatDate(date){
 }
 
 // const dataServerDomainName = 'http://localhost'
-const dataServerDomainName = 'http://47.129.54.22:8000' // Remove this, it automatically inserts the domain name
+const dataServerDomainName = '' // Remove this, it automatically inserts the domain name
 
 function setCoveredParkingSpace(area, area_id, state){
     var parkingSpaceContainer = document.getElementById(`${area}-${area_id}`)
