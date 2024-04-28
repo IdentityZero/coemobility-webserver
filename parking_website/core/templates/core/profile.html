@@ -140,7 +140,7 @@
                                     <div class="card-body">
                                         <h6 class="card-title">{{ vehicle.instance.vehicle_plate_number }}</h6>
                                         <p class="card-text small">{{ vehicle.instance.vehicle_classification }} - {{ vehicle.instance.vehicle_model }}</p>
-                                        <button type="button" data-toggle="modal" data-target="#edit{{ vehicle.instance.vehicle_plate_number }}" class="btn btn-primary btn-sm">Edit</button>
+                                        <button type="button" data-toggle="modal" data-target="#edit{{ vehicle.instance.vehicle_plate_number|slugify  }}" class="btn btn-primary btn-sm">Edit</button>
                                     </div>
                                 </div>
                             </div>
@@ -213,7 +213,7 @@
 </div>
 
 {% for vehicle in vehicles %}
-<div class="modal fade" id="edit{{ vehicle.instance.vehicle_plate_number }}" tabindex="-1" role="dialog" aria-labelledby="edit{{ vehicle.instance.vehicle_plate_number }}Label" aria-hidden="true">
+<div class="modal fade" id="edit{{ vehicle.instance.vehicle_plate_number|slugify  }}" tabindex="-1" role="dialog" aria-labelledby="edit{{ vehicle.instance.vehicle_plate_number|slugify  }}Label" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
