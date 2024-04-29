@@ -38,7 +38,7 @@ class VehiclesVehicles(models.Model):
         db_table = 'Vehicles_vehicles'
     
     def __str__(self):
-        return f"{self.vehicle_owner.username} - {self.vehicle_owner.get_full_name} - {self.vehicle_plate_number}"
+        return f"{self.vehicle_owner.username} - {self.vehicle_owner.get_full_name()} - {self.vehicle_plate_number}"
 
 class VehiclesVehiclerfid(models.Model):
     id = models.BigAutoField(primary_key=True)
