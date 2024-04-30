@@ -10,3 +10,7 @@ class VehicleRegistrationForm(forms.ModelForm):
         widgets = {
             'vehicle_classification': forms.Select(attrs={'class': 'field-input-select'}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super(VehicleRegistrationForm, self).__init__(*args, **kwargs)
+        self.fields['vehicle_classification'].required = True
