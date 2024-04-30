@@ -40,6 +40,8 @@ class VehiclesVehicles(models.Model):
     class Meta:
         managed = False
         db_table = 'Vehicles_vehicles'
+        verbose_name = "Vehicle"
+        verbose_name_plural = "Vehicles"
 
 class VehiclesVehiclerfid(models.Model):
     id = models.BigAutoField(primary_key=True)
