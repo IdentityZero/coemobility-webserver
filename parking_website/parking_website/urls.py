@@ -27,7 +27,7 @@ from Vehicles.views import VehicleRegistrationFormView, vehicleTrialView
 # from core import views
 
 urlpatterns = [
-    # path("admin/", admin.site.urls),
+    path("admin/", admin.site.urls),
     path("", include("core.urls")),
 
     path("login/",auth_views.LoginView.as_view(template_name="Users/login.html",redirect_authenticated_user=True), name="login"),
