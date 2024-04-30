@@ -9,6 +9,8 @@ class VehiclesVehiclecategory(models.Model):
     class Meta:
         managed = False
         db_table = 'Vehicles_vehiclecategory'
+        verbose_name = "Vehicle Category"
+        verbose_name_plural = "Vehicle Categories"
     
     def __str__(self):
         return self.vehicle_category
@@ -21,6 +23,8 @@ class VehiclesVehicleclassification(models.Model):
     class Meta:
         managed = False
         db_table = 'Vehicles_vehicleclassification'
+        verbose_name = "Vehicle Classification"
+        verbose_name_plural = "Vehicle Classifications"
     
     def __str__(self):
         return self.vehicle_classification
@@ -36,9 +40,6 @@ class VehiclesVehicles(models.Model):
     class Meta:
         managed = False
         db_table = 'Vehicles_vehicles'
-    
-    def __str__(self):
-        return f"{self.vehicle_owner.username} - {self.vehicle_owner.get_full_name()} - {self.vehicle_plate_number}"
 
 class VehiclesVehiclerfid(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -48,4 +49,6 @@ class VehiclesVehiclerfid(models.Model):
     class Meta:
         managed = False
         db_table = 'Vehicles_vehiclerfid'
+        verbose_name = "Vehicle RFID"
+        verbose_name_plural = "Vehicle RFIDs"
 

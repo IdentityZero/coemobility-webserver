@@ -21,6 +21,8 @@ class AuthUser(AbstractUser):
     class Meta:
         managed = False
         db_table = 'auth_user'
+        verbose_name = "User"
+        verbose_name_plural = "Users"
 
 
 class UsersDepartment(models.Model):
@@ -31,6 +33,8 @@ class UsersDepartment(models.Model):
     class Meta:
         managed = False
         db_table = 'Users_department'
+        verbose_name = "Department"
+        verbose_name_plural = "Departments"
     
     def __str__(self):
         return self.dept_name
@@ -43,6 +47,8 @@ class UsersIdentity(models.Model):
     class Meta:
         managed = False
         db_table = 'Users_identity'
+        verbose_name = "Identity/Role"
+        verbose_name_plural = "Identites/Roles"
     
     def __str__(self):
         return self.identity_name
@@ -60,4 +66,6 @@ class UsersProfile(models.Model):
     class Meta:
         managed = False
         db_table = 'Users_profile'
+        verbose_name = "User Profile"
+        verbose_name_plural = "User Profiles"
 
