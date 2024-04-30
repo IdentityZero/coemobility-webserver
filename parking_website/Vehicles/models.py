@@ -42,6 +42,10 @@ class VehiclesVehicles(models.Model):
         db_table = 'Vehicles_vehicles'
         verbose_name = "Vehicle"
         verbose_name_plural = "Vehicles"
+    
+    def __str__(self):
+        return f"{self.vehicle_plate_number} - {self.vehicle_owner.username}"
+    
 
 class VehiclesVehiclerfid(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -53,4 +57,7 @@ class VehiclesVehiclerfid(models.Model):
         db_table = 'Vehicles_vehiclerfid'
         verbose_name = "Vehicle RFID"
         verbose_name_plural = "Vehicle RFIDs"
+    
+    def __str__(self):
+        return f"{self.vehicle_rfid} - {self.vehicle.vehicle_owner.username}"
 
