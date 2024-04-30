@@ -41,6 +41,7 @@ class VehicleForm(forms.ModelForm):
         self.fields['vehicle_classification'].widget.attrs['class'] = 'form-control'
         self.fields['vehicle_model'].widget.attrs['class'] = 'form-control'
         self.fields['vehicle_image'].widget.attrs['class'] = 'form-control'
+        self.fields['vehicle_classification'].required = True
 
         obj = kwargs.get('instance')
 
