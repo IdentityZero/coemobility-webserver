@@ -7,7 +7,7 @@ with open('/etc/web_server_config.json', 'r') as config_file:
 SECRET_KEY = config['SECRET_KEY']
 DEBUG = False
 
-ALLOWED_HOSTS = ['122.248.192.233', 'localhost', 'coemobility.com']
+ALLOWED_HOSTS = ['47.129.54.22', 'localhost', 'coemobility.com']
 
 DATABASES = {
     "default": {
@@ -21,8 +21,8 @@ DATABASES = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    'http://122.248.192.233',
-    'https://122.248.192.233',
+    'http://47.129.54.22',
+    'https://47.129.54.22',
     'https://localhost',
     'https://coemobility.com',
 ]
