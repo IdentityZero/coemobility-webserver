@@ -15,15 +15,12 @@ DATABASES = {
 }
 
 print(BASE_DIR.parent.parent.parent / "backend/backend/dbsqlite3")
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost',
-]
+CORS_ALLOW_ALL_ORIGINS = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'media')
 MEDIA_URL = "/media/"
 
 THUMBNAIL_BUCKET_URL = "/media/"
 
-
-DATA_SERVER_URL = 'http://localhost'
+DATA_SERVER_URL = 'http://localhost:8000'
 

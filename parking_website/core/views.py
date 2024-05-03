@@ -22,7 +22,8 @@ def home(request):
     context = {'priority_role': user_role,
                'vehicle_categories':vehicle_categories,
                'roles':roles,
-               'THUMBNAIL_BUCKET_URL' : settings.THUMBNAIL_BUCKET_URL}
+               'THUMBNAIL_BUCKET_URL' : settings.THUMBNAIL_BUCKET_URL,
+               'DATA_SERVER_URL':settings.DATA_SERVER_URL}
     
     return render(request, 'core/home.html', context)
 

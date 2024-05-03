@@ -7,6 +7,10 @@ if (activeChild) {
 document.getElementById("homeLink-desktop").classList.add("active")
 document.getElementById("homeLink-mobile").classList.add("active")
 
+// const dataServerDomainName = 'http://localhost'
+const dataServerDomainName = document.getElementById("data-server-url").value
+console.log(dataServerDomainName)
+
 async function fetchData(url, maxRetries = 3, retryDelay = 1000) {
     for (let retry = 0; retry < maxRetries; retry++) {
       try {
@@ -86,9 +90,6 @@ function formatDate(date){
     return date.toLocaleDateString('en-US', options);
 }
 
-// const dataServerDomainName = 'http://localhost'
-const dataServerDomainName = '' // Remove this, it automatically inserts the domain name
-
 function setCoveredParkingSpace(area, area_id, state){
     var parkingSpaceContainer = document.getElementById(`${area}-${area_id}`)
     var parkingSpace = parkingSpaceContainer.children[0]
@@ -101,6 +102,7 @@ function setCoveredParkingSpace(area, area_id, state){
 }
 
 const parkingStatusURL = `${dataServerDomainName}/webapi/parking/status/`;
+console.log(parkingStatusURL);
 (async () => {
     const data = await fetchData(parkingStatusURL);
     if (data) {

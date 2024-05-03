@@ -11,6 +11,7 @@
 {% block content %}
 <input type="hidden" id="user-id" value="{{ user.id }}">
 <input type="hidden" id="register-home-url" value="{% url 'register-vehicle' %}">
+<input type="hidden" id="data-server-url" value="{{ DATA_SERVER_URL }}">
 
 <div class="home-content">
     <div class="container pt-2">
