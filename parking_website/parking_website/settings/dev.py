@@ -19,6 +19,9 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost',
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'media')
+MEDIA_URL = "/media/"
+
 THUMBNAIL_BUCKET_URL = "/media/"
 
 
