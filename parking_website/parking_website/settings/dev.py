@@ -9,14 +9,17 @@ ALLOWED_HOSTS = ['localhost']
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": BASE_DIR.parent.parent.parent / "backend/backend/db.sqlite3",
+        # backend should be in the same folder
     }
 }
 
+print(BASE_DIR.parent.parent.parent / "backend/backend/dbsqlite3")
 CORS_ALLOWED_ORIGINS = [
     'http://localhost',
 ]
 
+THUMBNAIL_BUCKET_URL = "/media/"
 
 
 DATA_SERVER_URL = 'http://localhost'

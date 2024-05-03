@@ -14,3 +14,4 @@ media/**/*.jpg
 media/**/*.jpeg
 !vehicle.png
 !profile.png
+db.sqlite3

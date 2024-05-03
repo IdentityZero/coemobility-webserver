@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+from django.conf import settings
 
 
 class UsersConfig(AppConfig):
@@ -6,4 +7,5 @@ class UsersConfig(AppConfig):
     name = "Users"
 
     def ready(self):
-        import Users.signals
+        if not settings.DEBUG:
+            import Users.signals
