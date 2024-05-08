@@ -23,7 +23,7 @@ DATABASES = {
 CORS_ALLOWED_ORIGINS = [
     'http://47.129.54.22',
     'https://47.129.54.22',
-    'https://localhost',
+    'http://localhost',
     'https://coemobility.com',
 ]
 
