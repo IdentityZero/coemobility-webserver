@@ -37,8 +37,11 @@ def delete_old_user_image(sender, instance,*args,**kwargs):
         print("Updating")
         # Delete the old image
         old_image_path = old_instance.user_image
+        print("1")
         client.delete_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key=str(old_image_path))
+        print("2")
         client.delete_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME_THUMBNAILS, Key=str(old_image_path))
+        print("3")
         print("Update successful")
     print("Delete successful")
 
