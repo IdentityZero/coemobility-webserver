@@ -8,5 +8,4 @@ class UsersConfig(AppConfig):
 
     def ready(self):
         if settings.DEBUG == False:
-            print("Signals ready")
             import Users.signals

@@ -14,6 +14,7 @@ client = boto3.client(
 
 @receiver(pre_save, sender=UsersProfile)
 def delete_old_user_image(sender, instance,*args,**kwargs):
+    print("Starting to delte old image")
     if not instance.pk:
         # Newly created
         return False
@@ -33,4 +34,5 @@ def delete_old_user_image(sender, instance,*args,**kwargs):
         old_image_path = old_instance.user_image
         client.delete_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key=str(old_image_path))
         client.delete_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME_THUMBNAILS, Key=str(old_image_path))
+    print("Delete successful")
 

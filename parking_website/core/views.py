@@ -89,11 +89,7 @@ class ProfileView(LoginRequiredMixin,TemplateView):
                 return self.render_to_response(context)
 
         except:
-            print("error")
-            error_message = userForm.errors
-            print(error_message)
-            context['error_list'] = error_message
-            return self.render_to_response(context)
+            pass
 
         # For editing vehicle
         try:
