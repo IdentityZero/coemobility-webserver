@@ -75,6 +75,7 @@ class ProfileView(LoginRequiredMixin,TemplateView):
             if userForm.is_valid() and userProfileForm.is_valid():
                 userForm.save()
                 userProfileForm.save()
+                print("Saving profile: success...")
             elif not userForm.is_valid():
                 error_message = userForm.errors
                 context['error_list'] = error_message

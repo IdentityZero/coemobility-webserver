@@ -5,7 +5,7 @@ with open('/etc/web_server_config.json', 'r') as config_file:
     config = json.load(config_file)
 
 SECRET_KEY = config['SECRET_KEY']
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['47.129.54.22', 'localhost', 'coemobility.com']
 
