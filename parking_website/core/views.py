@@ -67,11 +67,11 @@ class ProfileView(LoginRequiredMixin,TemplateView):
         user = self.request.user
         user_profile = UsersProfile.objects.get(user=user)
 
-        userFormChecker = request.POST['username']
-        userProfileFormChecker = request.POST['user_university_number']
-        userForm = UserForm(request.POST, instance=user)
-        userProfileForm = ProfileForm(request.POST,request.FILES, instance=user_profile)
         try:
+            userFormChecker = request.POST['username']
+            userProfileFormChecker = request.POST['user_university_number']
+            userForm = UserForm(request.POST, instance=user)
+            userProfileForm = ProfileForm(request.POST,request.FILES, instance=user_profile)
             print("Saving profile")
             if userForm.is_valid() and userProfileForm.is_valid():
                 userForm.save()
@@ -89,8 +89,10 @@ class ProfileView(LoginRequiredMixin,TemplateView):
                 return self.render_to_response(context)
 
         except:
-            print("Error")
-            pass
+            print("error")
+            error_message = userForm.errors
+            context['error_list'] = error_message
+            return self.render_to_response(context)
 
         # For editing vehicle
         try:
