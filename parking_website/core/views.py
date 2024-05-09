@@ -72,24 +72,20 @@ class ProfileView(LoginRequiredMixin,TemplateView):
             userProfileFormChecker = request.POST['user_university_number']
             userForm = UserForm(request.POST, instance=user)
             userProfileForm = ProfileForm(request.POST,request.FILES, instance=user_profile)
-            print("Saving profile")
             if userForm.is_valid() and userProfileForm.is_valid():
-                print("Saving profile: success...")
                 userForm.save()
                 userProfileForm.save()
             elif not userForm.is_valid():
-                print("Invalid userform")
                 error_message = userForm.errors
                 context['error_list'] = error_message
                 return self.render_to_response(context)
             elif not userProfileForm.is_valid():
-                print("Invalid profile form")
                 error_message = userProfileForm.errors
                 context['error_list'] = error_message
                 return self.render_to_response(context)
 
         except:
-            print("Error")
+            pass
 
         # For editing vehicle
         try:
