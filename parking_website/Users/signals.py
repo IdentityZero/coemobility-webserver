@@ -16,23 +16,29 @@ client = boto3.client(
 def delete_old_user_image(sender, instance,*args,**kwargs):
     print("Starting to delte old image")
     if not instance.pk:
+        print("Account is newly created")
         # Newly created
         return False
     
     try:
         old_instance = sender.objects.get(pk=instance.pk)
+        print("Old instance exist")
     except sender.DoesNotExist:
+        print("Sender does not exist")
         return False
     
     # Image is empty or default image
     if not old_instance.user_image or old_instance.user_image == settings.DEFAULT_PROFILE_IMAGE:
+        print("Image is empty or default")
         return False
     
     new_image = instance.user_image
     if not old_instance.user_image == new_image:
+        print("Updating")
         # Delete the old image
         old_image_path = old_instance.user_image
         client.delete_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key=str(old_image_path))
         client.delete_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME_THUMBNAILS, Key=str(old_image_path))
+        print("Update successful")
     print("Delete successful")
 
