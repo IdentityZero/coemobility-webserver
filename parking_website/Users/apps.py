@@ -7,5 +7,6 @@ class UsersConfig(AppConfig):
     name = "Users"
 
     def ready(self):
-        if not settings.DEBUG:
+        if settings.DEBUG == False:
+            print("Signals ready")
             import Users.signals
