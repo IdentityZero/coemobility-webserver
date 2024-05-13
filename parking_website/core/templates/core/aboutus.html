@@ -1,0 +1,23 @@
+<!-- Make sure the base is from the 'core' -->
+{% extends 'core/base.html' %} 
+{% load static %}
+
+{% block additionalLinks %}
+<link rel="stylesheet" href="{% static 'core/css/aboutus.css' %}">
+{% endblock %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+
+</div>
+
+{% endblock %}
+
+
+{% block additionalScript %}
+<script src="{% static 'core/js/aboutus.js' %}"></script>
+{% endblock%}
