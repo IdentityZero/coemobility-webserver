@@ -14,7 +14,6 @@ DATABASES = {
     }
 }
 
-print(BASE_DIR.parent.parent.parent / "backend/backend/dbsqlite3")
 CORS_ALLOW_ALL_ORIGINS = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'media')
