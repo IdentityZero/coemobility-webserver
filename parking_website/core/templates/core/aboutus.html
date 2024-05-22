@@ -1,0 +1,196 @@
+<!-- Make sure the base is from the 'core' -->
+{% extends 'core/base.html' %} 
+{% load static %}
+
+{% block additionalLinks %}
+<link rel="stylesheet" href="{% static 'core/css/aboutus.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="content">
+
+        <div class="content-text">
+            <h2 id="title"><strong style="color:maroon">COEMobility</strong> Team</h2>
+            <p>The dedicated team of Computer Engineering Students in developing the RFID-based Vehicle Identification and Parking Space Monitoring System of the College Of Engineering - Mariano Marcos State University.</p>
+        </div>
+
+        <!-- <div class="row d-flex justify-content-center">
+            <div class="box-container container" id="custom-box-container1">
+                <div class="box">
+                    <div class="row">
+                        <div class="col d-flex align-items-center justify-content-center flex-wrap">
+                            <img src="{% static 'core/image/dev0.jpg' %}" class="img-fluid d-block" alt="Adviser Image">
+                            <div class="box-title ml-2">
+                                <h4>Engr. Vladimir Ibanez</h4>
+                                <h6>Adviser</h6>
+                            </div>
+                        </div>
+                        <div class="col-7 d-flex align-items-center justify-content-center">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="content-main row d-flex justify-content-center">
+
+            <div class="box-container col-md-6 col-lg-4">
+                <div class="box">
+                    <img src="{% static 'core/image/dev0.jpg' %}" class="img-fluid mx-auto d-block" alt="Dev 1 Image">
+
+                    <div class="box-title">
+                        <h4>Dave Lorenzo</h4>
+                        <h6>Team Manager</h6>
+                    </div>
+
+                    <!-- <div class="box-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    </div> -->
+
+                    <div class="box-icons">
+                        <i class="fa-solid fa-square-phone" onclick="copyNumberToClickBoard(0)"></i>
+                        <a href="mailto:&#x64;&#x61;&#x76;&#x65;&#x6c;&#x6f;&#x72;&#x65;&#x6e;&#x7a;&#x6f;&#x39;&#x33;&#x31;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;"><i class="fa-regular fa-envelope"></i></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="box-container col-md-6 col-lg-4">
+                <div class="box">
+                    <img src="{% static 'core/image/dev1.jpg' %}" class="img-fluid mx-auto d-block" alt="Dev 2 Image">
+
+                    <div class="box-title">
+                        <h4>Arvin Joshua Ayson</h4>
+                        <h6>Hardware Technician/Software Developer</h6>
+                    </div>
+
+                    <!-- <div class="box-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    </div> -->
+
+                    <div class="box-icons">
+                        <i class="fa-solid fa-square-phone" onclick="copyNumberToClickBoard(1)"></i>
+                        <a href="mailto:&#x61;&#x79;&#x73;&#x6f;&#x6e;&#x61;&#x72;&#x76;&#x69;&#x6e;&#x6a;&#x6f;&#x73;&#x68;&#x75;&#x61;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;"><i class="fa-regular fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-container col-md-6 col-lg-4">
+                <div class="box">
+                    <img src="{% static 'core/image/dev2.jpg' %}" class="img-fluid mx-auto d-block" alt="Dev 3 Image">
+
+                    <div class="box-title">
+                        <h4>Shelona Jean Caalim</h4>
+                        <h6>UI Designer/Public Relations</h6>
+                    </div>
+
+                    <!-- <div class="box-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    </div> -->
+
+                    <div class="box-icons">
+                        <i class="fa-solid fa-square-phone" onclick="copyNumberToClickBoard(2)"></i>
+                        <a href="mailto:&#x63;&#x61;&#x61;&#x6c;&#x69;&#x6d;&#x73;&#x68;&#x65;&#x6c;&#x6f;&#x6e;&#x61;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;"><i class="fa-regular fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-container col-md-6 col-lg-4">
+                <div class="box">
+                    <img src="{% static 'core/image/dev3.jpg' %}" class="img-fluid mx-auto d-block" alt="Dev 4 Image">
+
+                    <div class="box-title">
+                        <h4>Jasser Jan Java</h4>
+                        <h6>Hardware Technician</h6>
+                    </div>
+
+                    <!-- <div class="box-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    </div> -->
+
+                    <div class="box-icons">
+                        <i class="fa-solid fa-square-phone" onclick="copyNumberToClickBoard(3)"></i>
+                        <a href="mailto:&#x6a;&#x61;&#x73;&#x73;&#x65;&#x72;&#x2e;&#x6a;&#x61;&#x76;&#x61;&#x39;&#x38;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;"><i class="fa-regular fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-container col-md-6 col-lg-4">
+                <div class="box">
+                    <img src="{% static 'core/image/dev4.jpg' %}" class="img-fluid mx-auto d-block" alt="Dev 5 Image">
+
+                    <div class="box-title">
+                        <h4>Lorence Andrei Dela Cruz</h4>
+                        <h6>UI Designer/Public Relations</h6>
+                    </div>
+
+                    <!-- <div class="box-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    </div> -->
+
+                    <div class="box-icons">
+                        <i class="fa-solid fa-square-phone" onclick="copyNumberToClickBoard(4)"></i>
+                        <a href="mailto:&#x6c;&#x6f;&#x72;&#x65;&#x6e;&#x63;&#x65;&#x61;&#x6e;&#x64;&#x72;&#x65;&#x69;&#x32;&#x36;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;"><i class="fa-regular fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-container col-md-6 col-lg-4">
+                <div class="box">
+                    <img src="{% static 'core/image/dev5.png' %}" class="img-fluid mx-auto d-block" alt="Dev 6 Image">
+
+                    <div class="box-title">
+                        <h4>Lovely Jay Cadiente</h4>
+                        <h6>Software Developer</h6>
+                    </div>
+
+                    <!-- <div class="box-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    </div> -->
+
+                    <div class="box-icons">
+                        <i class="fa-solid fa-square-phone" onclick="copyNumberToClickBoard(5)"></i>
+                        <a href="mailto:&#x6c;&#x6f;&#x76;&#x65;&#x6c;&#x79;&#x63;&#x61;&#x64;&#x69;&#x65;&#x6e;&#x74;&#x65;&#x31;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;"><i class="fa-regular fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-container col-md-6 col-lg-4">
+                <div class="box">
+                    <img src="{% static 'core/image/dev6.jpg' %}" class="img-fluid mx-auto d-block" alt="Dev 7 Image">
+
+                    <div class="box-title">
+                        <h4>John Carlo Lorenzo</h4>
+                        <h6>Hardware Technician/Acquisitions Manager</h6>
+                    </div>
+
+                    <!-- <div class="box-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                    </div> -->
+
+                    <div class="box-icons">
+                        <i class="fa-solid fa-square-phone" onclick="copyNumberToClickBoard(6)"></i>
+                        <a href="mailto:&#x73;&#x65;&#x6e;&#x70;&#x61;&#x69;&#x6a;&#x63;&#x73;&#x6c;&#x6f;&#x72;&#x65;&#x6e;&#x7a;&#x6f;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;"><i class="fa-regular fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block additionalScript %}
+<script src="{% static 'core/js/aboutus.js' %}"></script>
+{% endblock%}

@@ -34,10 +34,10 @@
                           {{ user.username }}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+                            <a class="dropdown-item" href="{% url 'profile' %}"> <i class="fa-solid fa-user"></i> My Profile</a>
                             <form method="POST" action="{% url 'logout' %}">
                                 {% csrf_token %}
-                                <input class="dropdown-item" id="logout-button" type="submit" value="Logout">
+                                <button type="submit" style="cursor: pointer;" class="dropdown-item"> <i class="fa-solid fa-right-from-bracket"></i> Logout</button>
                             </form>
                             </div>
                       </div>
@@ -66,7 +66,7 @@
                           </button>
                     </div>
                     <div class="col-12">
-                        <figure class="fir-image-figure">
+                        <figure class="fir-image-figure" style="margin-bottom: 20px;">
                             <img class="fir-clickcircle" src="{{ THUMBNAIL_BUCKET_URL }}{{ user.usersprofile.user_image }}" alt="{{user.username}}'s Profile Picture">
 
                             <figcaption>
@@ -78,24 +78,12 @@
                     <div class="col-12">
                         <div class="link-groups">
                             <div class="link-set">
-                                <div class="link-set-title">
-                                    <h3>My Profile</h3>
-                                </div>
                                 <div class="link-set-items">
-                                    <button id="homeLink-mobile"><a href="{% url 'home' %}">Home</a></button>
-                                    <button id="profileLink-mobile" ><a href="{% url 'profile' %}">Profile</a></button>
-                                    <button id="recordsLink-mobile"><a href="{% url 'records' %}">Parking Records</a></button>
-                                </div>
-                            </div>
-
-                            <div class="link-set">
-                                <div class="link-set-title">
-                                    <h3>Others</h3>
-                                </div>
-                                <div class="link-set-items">
-                                    <button>Report</button>
-                                    <button>About us</button>
-                                    <button>Frequently asked questions</button>
+                                    <button id="homeLink-mobile"><a href="{% url 'home' %}"> <i class="fa-solid fa-house"></i> Home</a></button>
+                                    <button id="profileLink-mobile" ><a href="{% url 'profile' %}"> <i class="fa-solid fa-user"></i> Profile</a></button>
+                                    <button id="recordsLink-mobile"><a href="{% url 'records' %}"> <i class="fa-solid fa-clipboard"></i> Parking Records</a></button>
+                                    <button> <i class="fa-solid fa-flag"></i> Contact Us</button>
+                                    <button id="aboutUsLink-mobile"><a href="{% url 'about-us' %}"> <i class="fa-solid fa-circle-info"></i> About us</a></button>
                                 </div>
                             </div>
 
@@ -103,7 +91,16 @@
                                 <div class="link-set-title">
                                     <form method="POST" action="{% url 'logout' %}">
                                         {% csrf_token %}
-                                        <input class="dropdown-item" style="padding-left:0" id="logout-button"type="submit" value="Logout">
+                                        <div class="container">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <i class="fa-solid fa-right-from-bracket"></i> 
+                                                </div>
+                                                <div class="col" style="padding-left:0">
+                                                    <input class="dropdown-item" style="padding-left:0" id="logout-button"type="submit" value="Logout">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
                                 
@@ -122,30 +119,31 @@
                 <div class="col-lg-3 col-md-4 pr-2 d-none d-md-block sidebar-container">
                     <div class="sidebar p-3">
 
-                        <div id="profile-picture">
-                            <img src="{{ THUMBNAIL_BUCKET_URL }}{{ user.usersprofile.user_image }}" alt="{{user.username}}'s Profile Picture">
+                        <div>
+                            <div style="display: flex; align-items: center; justify-content: center; gap:5px">
+                                <img src="{% static 'core/image/COE_LOGO.png' %}" alt="">
+                                <img src="{% static 'core/image/MMSU_LOGO.png' %}" alt="">
+                                <img src="{% static 'core/image/ICPEP_LOGO.png' %}" alt="">
+                            </div>
+                            <br>
+                            <div>
+                                <p style="font-size: 12px; font-weight: bold; text-align: center;">RFID-BASED VEHICLE IDENTIFICATION AND MONITORING SYSTEM</p>
+                            </div>
+                            <hr style="border: none; height: 2px;background-color: white;">
                         </div>
+
+                        <!-- <div id="profile-picture">
+                            <img src="{{ THUMBNAIL_BUCKET_URL }}{{ user.usersprofile.user_image }}" alt="{{user.username}}'s Profile Picture">
+                        </div> -->
 
                         <div class="link-groups">
                             <div class="link-set">
-                                <div class="link-set-title">
-                                    <h3>My Profile</h3>
-                                </div>
                                 <div class="link-set-items">
-                                    <button id="homeLink-desktop"><a href="{% url 'home' %}">Home</a></button>
-                                    <button id="profileLink-desktop" ><a href="{% url 'profile' %}">Profile</a></button>
-                                    <button id="recordsLink-desktop"><a href="{% url 'records' %}">Parking Records</a></button>
-                                </div>
-                            </div>
-
-                            <div class="link-set">
-                                <div class="link-set-title">
-                                    <h3>Others</h3>
-                                </div>
-                                <div class="link-set-items">
-                                    <button>Report</button>
-                                    <button>About us</button>
-                                    <button>Frequently asked questions</button>
+                                    <button id="homeLink-desktop"><a href="{% url 'home' %}"> <i class="fa-solid fa-house"></i> Home</a></button>
+                                    <button id="profileLink-desktop" ><a href="{% url 'profile' %}"> <i class="fa-solid fa-user"></i> Profile</a></button>
+                                    <button id="recordsLink-desktop"><a href="{% url 'records' %}"> <i class="fa-solid fa-clipboard"></i> Parking Records</a></button>
+                                    <button> <i class="fa-solid fa-flag"></i> Contact Us</button>
+                                    <button id="aboutUsLink-desktop"><a href="{% url 'about-us' %}"> <i class="fa-solid fa-circle-info"></i> About us</a></button>
                                 </div>
                             </div>
                         </div>

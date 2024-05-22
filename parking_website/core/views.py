@@ -122,3 +122,11 @@ def records(request):
         'THUMBNAIL_BUCKET_URL' : settings.THUMBNAIL_BUCKET_URL
     }
     return render(request,'core/records.html', context)
+
+def aboutUs(request):
+    context = {
+        'THUMBNAIL_BUCKET_URL':settings.THUMBNAIL_BUCKET_URL
+    }
+    return render(request,'core/aboutus.html', context)
+
+
