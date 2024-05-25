@@ -99,3 +99,8 @@
     justify-content: flex-start;
 }
 
+@media (max-width: 1200px) {
+    #inbox-box {
+        width:100%;
+    }
+}
