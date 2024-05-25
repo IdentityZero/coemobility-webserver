@@ -9,7 +9,6 @@ document.getElementById("homeLink-mobile").classList.add("active")
 
 // const dataServerDomainName = 'http://localhost'
 const dataServerDomainName = document.getElementById("data-server-url").value
-console.log(dataServerDomainName)
 
 async function fetchData(url, maxRetries = 3, retryDelay = 1000) {
     for (let retry = 0; retry < maxRetries; retry++) {
@@ -102,7 +101,6 @@ function setCoveredParkingSpace(area, area_id, state){
 }
 
 const parkingStatusURL = `${dataServerDomainName}/webapi/parking/status/`;
-console.log(parkingStatusURL);
 (async () => {
     const data = await fetchData(parkingStatusURL);
     if (data) {
@@ -124,6 +122,7 @@ const coveredParkingStatusAreasURL = `${dataServerDomainName}/api/covered_parkin
 const coveredParkingStatusURL = `${dataServerDomainName}/api/covered_parking/`;
 (async() =>{
     const areaNames = await fetchData(coveredParkingStatusAreasURL)
+    console.log(areaNames)
     areaNames.forEach(areaName =>{
         var parkingAreaContainer = document.getElementById(areaName.area_name)
         parkingAreaContainer.querySelector('h5[name="title"]').innerHTML = areaName.area_name
