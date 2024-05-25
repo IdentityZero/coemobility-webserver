@@ -121,8 +121,8 @@ const parkingStatusURL = `${dataServerDomainName}/webapi/parking/status/`;
 const coveredParkingStatusAreasURL = `${dataServerDomainName}/api/covered_parking/areas/`;
 const coveredParkingStatusURL = `${dataServerDomainName}/api/covered_parking/`;
 (async() =>{
-    const areaNames = await fetchData(coveredParkingStatusAreasURL)
-    console.log(areaNames)
+    var areaNames = await fetchData(coveredParkingStatusAreasURL)
+    areaNames = areaNames['results']
     areaNames.forEach(areaName =>{
         var parkingAreaContainer = document.getElementById(areaName.area_name)
         parkingAreaContainer.querySelector('h5[name="title"]').innerHTML = areaName.area_name
