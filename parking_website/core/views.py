@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
@@ -116,6 +117,7 @@ class ProfileView(LoginRequiredMixin,TemplateView):
         
         return redirect('profile')
 
+@login_required
 def records(request):
     context = {
         'THUMBNAIL_BUCKET_URL' : settings.THUMBNAIL_BUCKET_URL
@@ -127,5 +129,12 @@ def aboutUs(request):
         'THUMBNAIL_BUCKET_URL':settings.THUMBNAIL_BUCKET_URL
     }
     return render(request,'core/aboutus.html', context)
+
+@login_required
+def contactUs(request):
+    context = {
+        'THUMBNAIL_BUCKET_URL':settings.THUMBNAIL_BUCKET_URL
+    }
+    return render(request,'core/contactus.html', context)
 
 

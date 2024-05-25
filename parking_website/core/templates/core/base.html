@@ -23,7 +23,7 @@
 
 <body>
     <header>
-        <nav>
+        <nav id="navbar-topbar">
             <div id="desktop-topbar" class="topbar container">
                 <div class="topbar-content company-name">
                     COEMobility
@@ -82,7 +82,7 @@
                                     <button id="homeLink-mobile"><a href="{% url 'home' %}"> <i class="fa-solid fa-house"></i> Home</a></button>
                                     <button id="profileLink-mobile" ><a href="{% url 'profile' %}"> <i class="fa-solid fa-user"></i> Profile</a></button>
                                     <button id="recordsLink-mobile"><a href="{% url 'records' %}"> <i class="fa-solid fa-clipboard"></i> Parking Records</a></button>
-                                    <button> <i class="fa-solid fa-flag"></i> Contact Us</button>
+                                    <button id="contactUsLink-mobile"><a href="{% url 'contact-us' %}"><i class="fa-solid fa-flag"></i> Contact Us</a></button>
                                     <button id="aboutUsLink-mobile"><a href="{% url 'about-us' %}"> <i class="fa-solid fa-circle-info"></i> About us</a></button>
                                 </div>
                             </div>
@@ -142,7 +142,7 @@
                                     <button id="homeLink-desktop"><a href="{% url 'home' %}"> <i class="fa-solid fa-house"></i> Home</a></button>
                                     <button id="profileLink-desktop" ><a href="{% url 'profile' %}"> <i class="fa-solid fa-user"></i> Profile</a></button>
                                     <button id="recordsLink-desktop"><a href="{% url 'records' %}"> <i class="fa-solid fa-clipboard"></i> Parking Records</a></button>
-                                    <button> <i class="fa-solid fa-flag"></i> Contact Us</button>
+                                    <button id="contactUsLink-desktop"><a href="{% url 'contact-us' %}"><i class="fa-solid fa-flag"></i> Contact Us</a></button>
                                     <button id="aboutUsLink-desktop"><a href="{% url 'about-us' %}"> <i class="fa-solid fa-circle-info"></i> About us</a></button>
                                 </div>
                             </div>
