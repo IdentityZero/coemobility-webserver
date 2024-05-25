@@ -10,7 +10,7 @@ document.getElementById("contactUsLink-desktop").classList.add("active");
 document.getElementById("contactUsLink-mobile").classList.add("active");
 
 const id = document.getElementById("request-id").value;
-const conversationUrl = `http://localhost:8000/chats/conversations/?id=${id}`
+const conversationUrl = `/chats/conversations/?id=${id}`
 const mailBox = document.getElementById("mailbox");
 
 const newConversationButton = document.getElementById("newConversationButton");
@@ -34,7 +34,7 @@ document.getElementById("newConversationForm").addEventListener('submit', functi
 
     // Disable button
     
-    const url = 'http://localhost:8000/chats/new/';
+    const url = '/chats/new/';
     const newTopic = document.getElementById("new-topic");
     const newTopicBody = document.getElementById("new-topic-body");
 
@@ -69,7 +69,7 @@ document.getElementById("newConversationForm").addEventListener('submit', functi
         newTopic.value = "";
         newTopicBody.value = "";
         $('#newConversationModal').modal('hide');
-        retrieveInboxForm(`http://localhost:8000/chats/conversations/?id=${id}`);
+        retrieveInboxForm(`/chats/conversations/?id=${id}`);
     })
     .catch(error => {
         console.error('Error:', error); // Handle any errors
@@ -223,7 +223,7 @@ async function openConversation(conversation_id, topic) {
         // Get reply
         const reply = document.getElementById("reply-msg");
         let body_msg = reply.value;
-        const url = 'http://localhost:8000/chats/conversations/messages/create/';
+        const url = '/chats/conversations/messages/create/';
         
         const data = {
             body: body_msg,
@@ -273,7 +273,7 @@ async function openConversation(conversation_id, topic) {
     })
 
     // Set the chat history
-    let url = `http://localhost:8000/chats/conversations/messages/${conversation_id}/`
+    let url = `/chats/conversations/messages/${conversation_id}/`
     const data = await fetchData(url);
     const results = data['results']
     
