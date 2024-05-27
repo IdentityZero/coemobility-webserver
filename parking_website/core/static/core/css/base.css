@@ -50,9 +50,11 @@ body{
 }
 
 #navbar-topbar{
+    position: fixed;
     height: 54px;
     width: 100%;
     background-color: var(--color-primary-main);
+    z-index: 1000;
 }
 
 nav .topbar{
@@ -95,9 +97,12 @@ nav .topbar{
 
 .sidebar, .main-content {
     height: 100%;
+    margin-top: 54px;
 }
 
 .sidebar {
+    position: fixed;
+    width: 270px;
     background-color: var(--color-secondary-main);
     display: flex;
     flex-direction: column;
@@ -180,30 +185,6 @@ button a:hover {
     background-image: linear-gradient(to right, var(--color-accent-dark) 0%, var(--color-accent-dark) 4%, var(--color-accent-main) 4%, var(--color-accent-main) 100%) !important;
 }
 
-@media (max-width: 992px) {
-    #profile-picture{
-        width:150px;
-        max-height: 150px;
-    }
-
-    .link-set-title h3{
-        font-family: var(--primary-font-family);
-        font-size: var(--small-title-font-size-m)
-    }
-
-    .link-set-items button{        
-        font-size: var(--content-font-size-m);
-    }
-
-    .link-set-items button:hover, .link-set-items .active{
-        font-size: var(--content-font-size-hover-m);
-    }
-
-    .link-set-items{
-        margin-left: 10px;
-    }
-
-}
 
 #mobile-topbar{
     width: 100%;
@@ -267,6 +248,55 @@ button a:hover {
     font-weight: 400;
     font-size: 15px;
     margin-top: 2px;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .sidebar {
+        width: 220px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .sidebar {
+        width: 230px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .sidebar {
+        width: 250px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .sidebar {
+        width: 270px;
+    }
+}
+
+@media (max-width: 992px) {
+    #profile-picture{
+        width:150px;
+        max-height: 150px;
+    }
+
+    .link-set-title h3{
+        font-family: var(--primary-font-family);
+        font-size: var(--small-title-font-size-m)
+    }
+
+    .link-set-items button{        
+        font-size: var(--content-font-size-m);
+    }
+
+    .link-set-items button:hover, .link-set-items .active{
+        font-size: var(--content-font-size-hover-m);
+    }
+
+    .link-set-items{
+        margin-left: 10px;
+    }
+
 }
 
 @media (max-width: 767px) {
